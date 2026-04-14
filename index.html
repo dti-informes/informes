@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicado DTI</title>
+    <style>
+        /* CSS: Estilização do Popup */
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; }
+
+        /* Estilo da caixa de diálogo */
+        dialog {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 0;
+            width: 90%;
+            max-width: 500px;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        /* Efeito de escurecer o fundo */
+        dialog::backdrop { background: rgba(0, 0, 0, 0.6); }
+
+        .container { padding: 25px; }
+
+        .header { 
+            background-color: #d32f2f; 
+            color: white; 
+            padding: 15px; 
+            margin: -25px -25px 20px -25px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .content { line-height: 1.6; color: #333; }
+        
+        .alerta { 
+            background: #fff3f3; 
+            border-left: 5px solid #d32f2f; 
+            padding: 10px; 
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover { background-color: #b71c1c; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <button id="btnAbrir" style="width: auto;">Ver Alerta DTI</button>
+
+    <dialog id="popupDTI">
+        <div class="container">
+            <div class="header">DTI INFORMA</div>
+            <div class="content">
+                <p>Golpes via <strong>Microsoft Teams</strong> têm se tornado comuns, explorando a confiança dos usuários para disseminar malwares e roubar dados.</p>
+                
+                <div class="alerta">
+                    Mensagens falsas se passando por @Leopoldo Beserra: ao recebê-las, BLOQUEIE IMEDIATAMENTE!
+                </div>
+
+                <p><strong>Como identificar:</strong> Note que o remetente aparece como <u>USUÁRIO EXTERNO</u>.</p>
+                
+                <p>Qualquer dúvida, por gentileza, contate o DTI.</p>
+                <p><em>Atenciosamente,</em></p>
+            </div>
+            <button onclick="window.location.href='https://araforros.sharepoint.com/sites/intranet/'">Ciente</button>
+        </div>
+    </dialog>
+
+    <script>
+        // JavaScript: Lógica para abrir e fechar
+        const modal = document.getElementById("popupDTI");
+        const btn = document.getElementById("btnAbrir");
+
+        // Abre o popup automaticamente ao carregar a página
+        window.onload = () => {
+            modal.showModal();
+        };
+
+        // Função para o botão fechar
+        function fecharPopup() {
+            modal.close();
+        }
+
+        // Função auxiliar para o botão de teste
+        btn.onclick = () => modal.showModal();
+    </script>
+
+</body>
+</html>
